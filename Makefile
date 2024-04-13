@@ -32,6 +32,19 @@ build: ## Build the project
 		--target=es2022 \
 		--sourcemap
 
+.PHONY: esy
+esy:
+	esy dune build src/vscode_ocaml_platform.bc.js
+	yarn workspace astexplorer build
+	yarn esbuild _build/default/src/vscode_ocaml_platform.bc.js \
+		--bundle \
+		--external:vscode \
+		--outdir=dist \
+		--platform=node \
+		--target=es2022 \
+		--sourcemap
+
+
 .PHONY: build-release
 build-release:
 	dune build src/vscode_ocaml_platform.bc.js --profile=release
@@ -50,6 +63,11 @@ build-release:
 .PHONY: test
 test: ## Run the unit tests
 	dune build @runtest
+	yarn test
+
+.PHONY: test-esy
+test-esy: ## Run the unit tests
+	esy dune build @runtest
 	yarn test
 
 .PHONY: clean

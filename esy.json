@@ -1,0 +1,10 @@
+{
+  "source": "./vscode-ocaml-platform.opam",
+  "override": {
+    "buildsInSource": "_build",
+    "resolutions": {
+      "@opam/ocp-indent": "OCamlPro/ocp-indent:ocp-indent.opam#7c4d434132cebc15a8213c8be9e7323692eb0a2b",
+      "@opam/vscode": "link:./vscode.opam"
+    }
+  }
+}

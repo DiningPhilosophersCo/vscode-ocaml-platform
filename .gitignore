@@ -36,3 +36,6 @@ dist/
 
 # build cache
 .parcel-cache/
+
+# esy
+_esy
